@@ -15,6 +15,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 1.6rem;
 }
 
 .logo {
@@ -107,4 +108,12 @@
 
 .custom-login {
     color: var(--primary);
+}
+
+.more-btn {
+    font-size: 2rem;
+    margin-left: 2.4rem;
+    background-color: transparent;
+    padding: 1rem;
+    cursor: pointer;
 }

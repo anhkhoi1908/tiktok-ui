@@ -1,8 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { Children, useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import Logo from '../../../../assets/images/logo.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import {
+    faCircleQuestion,
+    faEarthAsia,
+    faEllipsisVertical,
+    faKeyboard,
+    faPlus,
+} from '@fortawesome/free-solid-svg-icons';
 import { faCircleXmark, faSpinner, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/headless';
 
@@ -10,9 +16,46 @@ import styles from './Header.module.scss';
 import { Wrapper as PopperWrapper } from '../../../Popper';
 import AccountItem from '../../../AccountItem/index';
 import Button from '../../../Button/index';
+import Menu from '../../../Popper/Menu';
 
 export default function Header() {
     const cx = classNames.bind(styles);
+
+    const MENU_ITEMS = [
+        {
+            icon: <FontAwesomeIcon icon={faEarthAsia} />,
+            title: 'English',
+            children: {
+                title: 'Language',
+                data: [
+                    {
+                        type: 'language',
+                        code: 'en',
+                        title: 'English',
+                    },
+                    {
+                        type: 'language',
+                        code: 'vie',
+                        title: 'Vietnam',
+                    },
+                ],
+            },
+        },
+        {
+            icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+            title: 'Feedback and help',
+            to: '/feedback',
+        },
+        {
+            icon: <FontAwesomeIcon icon={faKeyboard} />,
+            title: 'Keyboard shortcuts',
+        },
+    ];
+
+    // Hanle logic
+    const handleOnchange = (menuItem) => {
+        console.log(menuItem);
+    };
 
     // Search suggest
     const [searchResult, setSearchResult] = useState([]);
@@ -62,6 +105,12 @@ export default function Header() {
                             Upload
                         </Button>
                         <Button primary>Sign in</Button>
+
+                        <Menu items={MENU_ITEMS} onChange={handleOnchange}>
+                            <button className={cx('more-btn')}>
+                                <FontAwesomeIcon icon={faEllipsisVertical} />
+                            </button>
+                        </Menu>
                     </div>
                 </div>
             </header>
