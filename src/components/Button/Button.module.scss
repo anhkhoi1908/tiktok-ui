@@ -1,0 +1,71 @@
+.wrapper {
+    min-width: 10rem;
+    padding: 1rem 1.6rem;
+    border-radius: 0.5rem;
+    font-size: 1.6rem;
+    font-weight: 700;
+    cursor: pointer;
+    background-color: #fff;
+    border: 0.1rem solid transparent;
+    user-select: none;
+
+    + .wrapper {
+        margin-left: 0.8rem;
+    }
+
+    &.disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+}
+
+.iconBtn + .title,
+.title + .iconBtn {
+    margin-left: 0.6rem;
+}
+
+// Butotn types
+.rounded {
+    border-radius: 999px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 6%);
+    border-color: rgba(22, 24, 35, 0.12);
+
+    &:hover {
+        border-color: rgba(22, 24, 35, 0.2);
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+
+.primary {
+    background-color: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+    &:hover {
+        border-color: var(--primary);
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.06), rgba(0, 0, 0, 0.06)), #fe2c55;
+    }
+}
+
+.outline {
+    color: var(--primary);
+    border-color: currentColor;
+
+    &:hover {
+        border-color: currentColor;
+        background-color: rgba(22, 24, 35, 0.06);
+    }
+}
+
+.text {
+    border-color: #e8e8e8;
+
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
+
+// Button size
+.large {
+    padding: 1.4rem 1.6rem;
+    min-width: 14rem;
+}
