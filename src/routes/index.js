@@ -11,8 +11,8 @@ import Search from '../pages/Search';
 const publicRoutes = [
     { path: '/', page: Home },
     { path: '/following', page: Following },
+    { path: '/:nickname', page: Profile },
     { path: '/upload', page: Upload, layout: HeaderOnly },
-    { path: '/profile', page: Profile },
     { path: '/search', page: Search, layout: null },
 ];
 
