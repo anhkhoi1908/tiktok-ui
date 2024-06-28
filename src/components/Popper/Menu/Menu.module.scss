@@ -18,6 +18,10 @@
     line-height: 1.8rem;
     border-radius: 0;
 
+    &.separate {
+        border-top: 0.1rem solid rgba(22, 24, 35, 0.12);
+    }
+
     &:hover {
         background-color: rgba(22, 24, 35, 0.03);
     }

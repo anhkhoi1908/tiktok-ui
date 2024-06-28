@@ -20,6 +20,12 @@ html {
     font-size: 62.5%;
 }
 
+// Fonts emmbeded
+// @font-face {
+//     font-family: ProximaNova;
+//     src: url('');
+// }
+
 body {
     font-family: 'IBM Plex Sans', san-serif;
     font-size: 1.6rem;
@@ -38,4 +44,27 @@ input,
 a[href] {
     color: var(--text-color);
     text-decoration: none;
+}
+
+// Custom tippy tooltip
+body {
+    .tippy-box {
+        border-radius: 1rem;
+        font-weight: 600;
+        font-size: 1.6rem;
+        line-height: 2.2rem;
+        background-color: rgba(84, 84, 84, 0.92);
+    }
+
+    .tippy-arrow {
+        color: rgba(84, 84, 84, 0.92);
+    }
+
+    .tippy-content {
+        padding: 1rem;
+    }
+
+    .tippy-box[data-placement^='bottom'] > .tippy-arrow:before {
+        top: -0.8rem;
+    }
 }

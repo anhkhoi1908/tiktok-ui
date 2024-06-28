@@ -117,3 +117,19 @@
     padding: 1rem;
     cursor: pointer;
 }
+
+.action-btn {
+    background-color: transparent;
+    font-size: 2rem;
+    color: #161823;
+    margin: 0.4rem 1.2rem;
+    cursor: pointer;
+}
+
+.user-avatar {
+    width: 3.2rem;
+    height: 3.2rem;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-left: 1.6rem;
+}
