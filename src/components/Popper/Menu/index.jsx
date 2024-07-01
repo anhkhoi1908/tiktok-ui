@@ -6,7 +6,7 @@ import { Wrapper as PopperWrapper } from '../index';
 import MenuItem from './MenuItem';
 import HeaderMenu from './HeaderMenu';
 
-export default function Menu({ children, items = [], onChange }) {
+export default function Menu({ children, items = [], onChange, hideOnClick = false }) {
     const cx = classNames.bind(styles);
 
     // Lấy phần tử cuối mảng vì trang nhất luôn là phần tử cuối mảng. Current đang là biến đặt cho trang đầu tiên
@@ -38,6 +38,7 @@ export default function Menu({ children, items = [], onChange }) {
             <Tippy
                 delay={[0, 700]}
                 offset={[12, 8]}
+                hideOnClick={hideOnClick}
                 interactive
                 placement="bottom-end"
                 render={(attrs) => (
