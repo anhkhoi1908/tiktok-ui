@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './Button.module.scss';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 export default function Button({
     to,
@@ -58,3 +59,19 @@ export default function Button({
         </div>
     );
 }
+
+Button.propTypes = {
+    to: PropTypes.string,
+    href: PropTypes.string,
+    children: PropTypes.node.isRequired,
+    primary: PropTypes.bool,
+    outline: PropTypes.bool,
+    large: PropTypes.bool,
+    text: PropTypes.bool,
+    disabled: PropTypes.bool,
+    rounded: PropTypes.bool,
+    className: PropTypes.string,
+    leftIcon: PropTypes.node,
+    rightIcon: PropTypes.node,
+    onClick: PropTypes.func,
+};

@@ -3,9 +3,13 @@
     --search-top-spacer: 1rem;
     --search-button-width: 5.2rem;
 
-    height: var(--default-layout-header-height);
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: var(--default-layout-header-height);
     box-shadow: 0 0.1rem 0.1rem rgba(0 0 0 / 12%);
+    background-color: #fff;
     display: flex;
 }
 

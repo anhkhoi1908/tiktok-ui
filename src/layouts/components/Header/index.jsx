@@ -1,6 +1,6 @@
 import React, { Children, useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
-import Logo from '../../../../assets/images/logo.svg';
+import Logo from '../../../assets/images/logo.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCircleQuestion,
@@ -18,14 +18,14 @@ import {
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
 import { Link } from 'react-router-dom';
-import routesConfig from '../../../../config/routes';
+import config from '../../../config';
 
 import styles from './Header.module.scss';
-import Button from '../../../Button/index';
-import Menu from '../../../Popper/Menu';
-import avatar from '../../../../assets/images/avatar.jpg';
-import { MessageIcon, InboxIcon } from '../../../Icons/';
-import ImageComponent from '../../../Image/';
+import Button from '../../../components/Button/index';
+import Menu from '../../../components/Popper/Menu';
+import avatar from '../../../assets/images/avatar.jpg';
+import { MessageIcon, InboxIcon } from '../../../components/Icons';
+import ImageComponent from '../../../components/Image';
 import SearchComponent from '../Search';
 
 export default function Header() {
@@ -98,7 +98,7 @@ export default function Header() {
         <div>
             <header className={cx('wrapper')}>
                 <div className={cx('inner')}>
-                    <Link to={routesConfig.home} className={cx('logo-link')}>
+                    <Link to={config.routes.home} className={cx('logo-link')}>
                         <img src={Logo} alt="Tiktok" />
                     </Link>
 

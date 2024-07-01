@@ -3,6 +3,7 @@ import classNames from 'classnames/bind';
 import styles from './Menu.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
 
 export default function HeaderMenu({ title, onBack }) {
     const cx = classNames.bind(styles);
@@ -17,3 +18,8 @@ export default function HeaderMenu({ title, onBack }) {
         </div>
     );
 }
+
+HeaderMenu.propTypes = {
+    title: PropTypes.string.isRequired,
+    onBack: PropTypes.func.isRequired,
+};

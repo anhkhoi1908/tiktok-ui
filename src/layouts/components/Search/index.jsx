@@ -2,13 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import HeadLessTippy from '@tippyjs/react/headless';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faSpinner, faMagnifyingGlass, faL } from '@fortawesome/free-solid-svg-icons';
-import { useDebounce } from '../../../../hooks';
+import { useDebounce } from '../../../hooks';
 import axios from 'axios';
-import * as request from '../../../../utils/request';
-import { search } from '../../../../apiService/searchService';
+import * as request from '../../../utils/httpRequest';
+import { search } from '../../../services/searchService';
 
-import { Wrapper as PopperWrapper } from '../../../Popper';
-import AccountItem from '../../../AccountItem/index';
+import { Wrapper as PopperWrapper } from '../../../components/Popper';
+import AccountItem from '../../../components/AccountItem/index';
 import classNames from 'classnames/bind';
 import styles from './Search.module.scss';
 import { type } from '@testing-library/user-event/dist/type';

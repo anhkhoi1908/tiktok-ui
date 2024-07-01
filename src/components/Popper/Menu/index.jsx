@@ -5,6 +5,7 @@ import styles from './Menu.module.scss';
 import { Wrapper as PopperWrapper } from '../index';
 import MenuItem from './MenuItem';
 import HeaderMenu from './HeaderMenu';
+import PropTypes from 'prop-types';
 
 export default function Menu({ children, items = [], onChange, hideOnClick = false }) {
     const cx = classNames.bind(styles);
@@ -46,13 +47,13 @@ export default function Menu({ children, items = [], onChange, hideOnClick = fal
                         <PopperWrapper className={cx('menu-popper')}>
                             {history.length > 1 && (
                                 <HeaderMenu
-                                    title="Languages"
+                                    title={current.title}
                                     onBack={() => {
                                         setHistory((prev) => prev.slice(0, prev.length - 1));
                                     }}
                                 />
                             )}
-                            {renderItem()}
+                            <div className={cx('menu-body')}>{renderItem()}</div>
                         </PopperWrapper>
                     </div>
                 )}
@@ -63,3 +64,10 @@ export default function Menu({ children, items = [], onChange, hideOnClick = fal
         </div>
     );
 }
+
+Menu.propTypes = {
+    children: PropTypes.node.isRequired,
+    items: PropTypes.array,
+    hideOnClick: PropTypes.bool,
+    onChange: PropTypes.func,
+};
