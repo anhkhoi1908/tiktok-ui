@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './Sidebar.module.scss';
-import MenuSidebar, { MenuSidebarItem } from './Menu';
+import MenuSidebar, { MenuSidebarItem } from './MenuSidebar';
 import config from '../../../config';
 import {
     HomeIcon,
@@ -10,7 +10,12 @@ import {
     HomeActiveIcon,
     UserGroupActiveIcon,
     LiveActiveIcon,
+    ExploreIcon,
+    ExploreActiveIcon,
+    FollowingIcon,
+    FollowingActiveIcon,
 } from '../../../components/Icons';
+import FollowingAccount from './FollowingAccount';
 
 export default function Sidebar() {
     const cx = classNames.bind(styles);
@@ -20,6 +25,12 @@ export default function Sidebar() {
             <aside className={cx('wrapper')}>
                 <MenuSidebar>
                     <MenuSidebarItem
+                        title="Explore"
+                        to={config.routes.explore}
+                        icon={<ExploreIcon />}
+                        activeIcon={<ExploreActiveIcon />}
+                    />
+                    <MenuSidebarItem
                         title="For You"
                         to={config.routes.home}
                         icon={<HomeIcon />}
@@ -28,6 +39,12 @@ export default function Sidebar() {
                     <MenuSidebarItem
                         title="Following"
                         to={config.routes.following}
+                        icon={<FollowingIcon />}
+                        activeIcon={<FollowingActiveIcon />}
+                    />
+                    <MenuSidebarItem
+                        title="Friends"
+                        to={config.routes.friends}
                         icon={<UserGroupIcon />}
                         activeIcon={<UserGroupActiveIcon />}
                     />
@@ -38,6 +55,7 @@ export default function Sidebar() {
                         activeIcon={<LiveActiveIcon />}
                     />
                 </MenuSidebar>
+                <FollowingAccount label="Following Accounts" />
             </aside>
         </div>
     );

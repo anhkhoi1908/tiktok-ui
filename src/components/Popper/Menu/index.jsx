@@ -7,7 +7,9 @@ import MenuItem from './MenuItem';
 import HeaderMenu from './HeaderMenu';
 import PropTypes from 'prop-types';
 
-export default function Menu({ children, items = [], onChange, hideOnClick = false }) {
+const defaultFn = () => {};
+
+export default function Menu({ children, items = [], onChange = defaultFn, hideOnClick = false }) {
     const cx = classNames.bind(styles);
 
     // Lấy phần tử cuối mảng vì trang nhất luôn là phần tử cuối mảng. Current đang là biến đặt cho trang đầu tiên
@@ -40,14 +42,14 @@ export default function Menu({ children, items = [], onChange, hideOnClick = fal
     };
 
     // Render menu
-    const renderResult = (attrs) => {
+    const renderResult = (attrs) => (
         <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
             <PopperWrapper className={cx('menu-popper')}>
                 {history.length > 1 && <HeaderMenu title={current.title} onBack={handleBack} />}
                 <div className={cx('menu-body')}>{renderItem()}</div>
             </PopperWrapper>
-        </div>;
-    };
+        </div>
+    );
 
     // Reset về trang đầu tiên của page
     const handleResetMenu = () => {
