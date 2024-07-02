@@ -34,6 +34,24 @@ export default function Menu({ children, items = [], onChange, hideOnClick = fal
         });
     };
 
+    const handleBack = () => {
+        setHistory((prev) => prev.slice(0, prev.length - 1));
+    };
+
+    const renderResult = (attrs) => {
+        <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
+            <PopperWrapper className={cx('menu-popper')}>
+                {history.length > 1 && <HeaderMenu title={current.title} onBack={handleBack} />}
+                <div className={cx('menu-body')}>{renderItem()}</div>
+            </PopperWrapper>
+        </div>;
+    };
+
+    // Reset về trang đầu tiên của page
+    const handleResetMenu = () => {
+        setHistory((prev) => prev.slice(0, 1));
+    };
+
     return (
         <div>
             <Tippy
@@ -42,22 +60,8 @@ export default function Menu({ children, items = [], onChange, hideOnClick = fal
                 hideOnClick={hideOnClick}
                 interactive
                 placement="bottom-end"
-                render={(attrs) => (
-                    <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
-                        <PopperWrapper className={cx('menu-popper')}>
-                            {history.length > 1 && (
-                                <HeaderMenu
-                                    title={current.title}
-                                    onBack={() => {
-                                        setHistory((prev) => prev.slice(0, prev.length - 1));
-                                    }}
-                                />
-                            )}
-                            <div className={cx('menu-body')}>{renderItem()}</div>
-                        </PopperWrapper>
-                    </div>
-                )}
-                onHide={() => setHistory((prev) => prev.slice(0, 1))}
+                render={renderResult}
+                onHide={handleResetMenu}
             >
                 {children}
             </Tippy>

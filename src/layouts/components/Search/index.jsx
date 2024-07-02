@@ -25,25 +25,25 @@ export default function SearchComponent() {
     // When search value loading will run. Dedfault value is false cause start have not search yet
     const [loading, setLoading] = useState(false);
 
-    const debounced = useDebounce(searchValue, 500);
+    const debouncedValue = useDebounce(searchValue, 500);
 
     // Call API
     useEffect(() => {
         // When each search will show suggest search. Use trim to hide suggest search when search empty string
-        if (!debounced.trim()) {
+        if (!debouncedValue.trim()) {
             setSearchResult([]);
             return;
         }
 
         const fetchApi = async () => {
             setLoading(true);
-            const result = await search(debounced);
+            const result = await search(debouncedValue);
             setSearchResult(result);
             setLoading(false);
         };
 
         fetchApi();
-    }, [debounced]);
+    }, [debouncedValue]);
 
     // When click delete input search, focus input by useRef
     const inputRef = useRef();
