@@ -92,7 +92,7 @@ export default function Header() {
         console.log(menuItem);
     };
 
-    const currentUser = false;
+    const currentUser = true;
 
     return (
         <div>

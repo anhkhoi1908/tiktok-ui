@@ -9,6 +9,7 @@ import Following from '../pages/Following';
 import Profile from '../pages/Profile';
 import Upload from '../pages/Upload';
 import Search from '../pages/Search';
+import Live from '../pages/Live';
 
 const publicRoutes = [
     { path: config.routes.home, page: Home },
@@ -16,6 +17,7 @@ const publicRoutes = [
     { path: config.routes.profile, page: Profile },
     { path: config.routes.upload, page: Upload, layout: HeaderOnly },
     { path: config.routes.search, page: Search, layout: null },
+    { path: config.routes.live, page: Live },
 ];
 
 const privateRoutes = [];

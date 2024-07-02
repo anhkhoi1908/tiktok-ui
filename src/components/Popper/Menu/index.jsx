@@ -34,10 +34,12 @@ export default function Menu({ children, items = [], onChange, hideOnClick = fal
         });
     };
 
+    // Back menu
     const handleBack = () => {
         setHistory((prev) => prev.slice(0, prev.length - 1));
     };
 
+    // Render menu
     const renderResult = (attrs) => {
         <div className={cx('menu-list')} tabIndex="-1" {...attrs}>
             <PopperWrapper className={cx('menu-popper')}>
